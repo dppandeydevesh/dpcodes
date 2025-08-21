@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Form</title>
+    <style>
+        * {
+            font-family: Arial, sans-serif;
+            margin: 5px;
+            padding: 5px;
+            color: rgb(226, 26, 143); 
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #fafafa;
+        }
+        form {
+            background-color: #f0f0f081;
+            padding: 20px;
+            width: 400px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px gray;
+        }
+        fieldset {
+            border: 2px solid rgb(226, 23, 158);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 0 5px #aaa;
+        }
+        legend {
+            font-weight: bold;
+            color: rgb(128, 0, 23);
+        }
+        input[type="text"]:hover,
+        input[type="number"]:hover,
+        input[type="email"]:hover,
+        input[type="tel"]:hover,
+        input[type="date"]:hover,
+        select:hover,
+        textarea:hover,
+        input[type="file"]:hover {
+            border: 2px solid rgb(73, 26, 203);
+            background-color: #e6ffe6;
+        }
+        input[type="checkbox"]:hover,
+        input[type="radio"]:hover {
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+        input[type="submit"] {
+            background-color: rgb(128, 0, 23);
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            width: 100%;
+        }
+        input[type="submit"]:hover {
+            background-color: rgb(226, 23, 158);
+            transform: scale(1.05);
+        }
+        label:hover {
+            color: rgb(213, 17, 92);
+            font-weight: bold;
+        }
+        h1 {
+            text-align: center;
+            color: rgb(128, 0, 23);
+        }
+    </style>
+</head>
+<body>
+    <form action="/submit" method="post" enctype="multipart/form-data">
+        <h1>Job Application Form</h1>
+
+        <fieldset>
+            <legend>Personal Information</legend>
+            <label for="fname">First Name:</label><br>
+            <input type="text" id="fname" name="fname" required><br><br>
+
+            <label for="lname">Last Name:</label><br>
+            <input type="text" id="lname" name="lname" required><br><br>
+
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="phone">Phone No:</label><br>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="Enter 10-digit number" required><br><br>
+
+            <label>Gender:</label><br>
+            <input type="radio" id="male" name="gender" value="Male" required>
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="Female">
+            <label for="female">Female</label>
+            <input type="radio" id="other" name="gender" value="Other">
+            <label for="other">Other</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Job Details</legend>
+            <label for="position">Position Applied For:</label><br>
+            <input type="text" id="position" name="position" required><br><br>
+
+            <label for="experience">Years of Experience:</label><br>
+            <input type="number" id="experience" name="experience" min="0" required><br><br>
+
+            <label for="cover">Cover Letter:</label><br>
+            <textarea id="cover" name="cover" rows="5" cols="35" placeholder="Write your cover letter here..." required></textarea>
+        </fieldset>
+
+        <fieldset>
+            <legend>Availability</legend>
+            <label for="startdate">Available Start Date:</label><br>
+            <input type="date" id="startdate" name="startdate" required><br><br>
+
+            <label>Willing to Relocate?</label><br>
+            <input type="radio" id="relocateYes" name="relocate" value="Yes" required>
+            <label for="relocateYes">Yes</label>
+            <input type="radio" id="relocateNo" name="relocate" value="No">
+            <label for="relocateNo">No</label>
+        </fieldset>
+
+        <input type="submit" value="Register">
+    </form>
+</body>
+</html>
