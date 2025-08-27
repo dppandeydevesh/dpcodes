@@ -6,7 +6,6 @@
   <title>Navbar with All Classes</title>
 
   <style>
-    /* ---------- Base / Utilities ---------- */
     * { box-sizing: border-box; }
     body.body { margin: 0; font-family: Arial, sans-serif; color: #111; }
     .container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
@@ -14,16 +13,13 @@
     .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
     a.link { text-decoration: none; color: inherit; }
 
-    /* ---------- Navbar ---------- */
     .navbar { position: sticky; top: 0; z-index: 50; background: #0b3d2e; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,.15); }
     .navbar__inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
 
-    /* Brand */
     .brand { display: flex; align-items: center; gap: 10px; }
     .brand__logo { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 8px; background: #18a999; font-weight: 700; }
     .brand__text { font-weight: 700; letter-spacing: .3px; }
 
-    /* Menu (desktop) */
     .menu { display: flex; align-items: center; gap: 8px; }
     .menu__list { list-style: none; display: flex; gap: 4px; margin: 0; padding: 0; }
     .menu__item { position: relative; }
@@ -31,7 +27,6 @@
     .menu__link:hover { background: rgba(255,255,255,.12); }
     .menu__link--active { background: rgba(255,255,255,.22); }
 
-    /* Dropdown */
     .dropdown { position: relative; }
     .dropdown__toggle { display: inline-flex; align-items: center; gap: 6px; padding: 10px 12px; border-radius: 10px; }
     .dropdown__toggle:hover { background: rgba(255,255,255,.12); }
@@ -43,7 +38,6 @@
     .dropdown__link { display: block; padding: 10px 12px; border-radius: 8px; }
     .dropdown__link:hover { background: #f1f5f9; }
 
-    /* Right side actions */
     .actions { display: flex; align-items: center; gap: 10px; }
     .search { position: relative; }
     .search__input { height: 38px; width: 200px; padding: 0 36px 0 12px; border: 1px solid rgba(255,255,255,.25); background: rgba(255,255,255,.1); color: #fff; border-radius: 10px; outline: none; }
@@ -57,14 +51,12 @@
     .btn--primary { background: #18a999; color: #08251d; border: none; }
     .btn--primary:hover { background: #14c3b0; }
 
-    /* Hamburger (mobile) */
     .hamburger { display: none; background: transparent; border: 1px solid rgba(255,255,255,.35); color: #fff; padding: 10px 12px; border-radius: 10px; }
     .hamburger__bar { display: block; width: 20px; height: 2px; background: currentColor; position: relative; }
     .hamburger__bar::before, .hamburger__bar::after { content: ""; position: absolute; left: 0; width: 20px; height: 2px; background: currentColor; }
     .hamburger__bar::before { top: -6px; }
     .hamburger__bar::after { top: 6px; }
 
-    /* ---------- Mobile Menu Panel ---------- */
     .mobile { display: none; background: #0b3d2e; border-top: 1px solid rgba(255,255,255,.15); }
     .mobile__section { padding: 10px 0; }
     .mobile__list { list-style: none; margin: 0; padding: 0; }
@@ -73,7 +65,6 @@
     .mobile__dropdown { padding: 6px 0 12px 12px; background: rgba(255,255,255,.06); }
     .mobile__dropdown-link { display: block; padding: 8px 12px; }
 
-    /* ---------- Responsive ---------- */
     @media (max-width: 860px) {
       .menu { display: none; }
       .actions { display: none; }
@@ -85,22 +76,20 @@
 </head>
 
 <body class="body">
-  <!-- NAVBAR -->
+
   <nav class="navbar" role="navigation" aria-label="Main Navigation">
     <div class="container navbar__inner">
-      <!-- Brand -->
+ 
       <a href="#" class="brand link" aria-label="Go to homepage">
         <span class="brand__logo">N</span>
         <span class="brand__text">NavBrand</span>
       </a>
 
-      <!-- Desktop Menu -->
+
       <div class="menu" aria-label="Primary">
         <ul class="menu__list">
           <li class="menu__item"><a class="menu__link menu__link--active link" href="#">Home</a></li>
           <li class="menu__item"><a class="menu__link link" href="#features">Features</a></li>
-
-          <!-- Dropdown -->
           <li class="menu__item dropdown">
             <button class="dropdown__toggle" aria-haspopup="true" aria-expanded="false">
               Products <span class="dropdown__icon">▾</span>
@@ -119,7 +108,6 @@
         </ul>
       </div>
 
-      <!-- Right Actions -->
       <div class="actions">
         <form class="search" role="search" aria-label="Site search" onsubmit="return false;">
           <label for="q" class="sr-only">Search</label>
@@ -130,13 +118,11 @@
         <a class="btn btn--primary link" href="#get-started">Get Started</a>
       </div>
 
-      <!-- Hamburger -->
       <button class="hamburger" id="hamburger" aria-controls="mobile-menu" aria-expanded="false" type="button">
         <span class="hamburger__bar"></span>
       </button>
     </div>
 
-    <!-- Mobile Menu -->
     <div class="mobile" id="mobile-menu">
       <div class="container mobile__section">
         <ul class="mobile__list">
@@ -170,7 +156,6 @@
     </div>
   </nav>
 
-  <!-- Demo page content -->
   <main class="container page">
     <section id="features" class="page__section">
       <h2 class="page__title">Features</h2>
@@ -179,7 +164,7 @@
   </main>
 
   <script>
-    // Mobile toggle
+
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobile-menu');
 
@@ -188,7 +173,6 @@
       hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
 
-    // Enable dropdown button focus behavior for accessibility (desktop)
     const dropdownToggle = document.querySelector('.dropdown__toggle');
     const dropdownMenu = document.querySelector('.dropdown__menu');
 
